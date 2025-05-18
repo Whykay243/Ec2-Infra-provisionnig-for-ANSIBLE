@@ -173,6 +173,7 @@ resource "aws_instance" "nginx" {
   instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
+  user_data = file("nginx.sh")
 
   tags = {
     Name = "Nginx-server"
@@ -183,6 +184,7 @@ resource "aws_instance" "apache" {
   instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
+  user_data = file("apache.sh")
 
   tags = {
     Name = "Apache-server"

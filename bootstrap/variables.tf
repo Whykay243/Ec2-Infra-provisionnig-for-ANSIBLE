@@ -1,7 +1,9 @@
 variable "region" {
+  type    = string
   default = "us-east-1"
 }
 
 variable "bucket_name" {
-  description = "Name of the bucket for storing tfstate"
+  type        = string
+  description = "The name of the S3 bucket for Terraform backend state"
 }

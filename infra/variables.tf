@@ -6,10 +6,10 @@ variable "key_name" {
   description = "Name for the EC2 key pair"
 }
 
-variable "instance_type" {
+variable "instance1" {
   default = "t2.micro"
 }
 
-variable "instance_type_master" {
+variable "instance2" {
   default = "t2.small"
 }

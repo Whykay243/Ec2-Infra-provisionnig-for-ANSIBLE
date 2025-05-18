@@ -152,7 +152,7 @@ ingress {
 
 resource "aws_instance" "master" {
   ami           = "ami-084568db4383264d4"
-  instance_type = var.instance_type_master
+  instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
 
@@ -162,7 +162,7 @@ resource "aws_instance" "master" {
 }
 resource "aws_instance" "worker-node-1" {
   ami           = "ami-084568db4383264d4"
-  instance_type = var.instance_type
+  instance_type = var.instance2
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
 
@@ -173,7 +173,7 @@ resource "aws_instance" "worker-node-1" {
 
 resource "aws_instance" "worker-node-2" {
   ami           = "ami-084568db4383264d4"
-  instance_type = var.instance_type
+  instance_type = var.instance2
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
 

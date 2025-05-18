@@ -152,7 +152,7 @@ ingress {
 
 resource "aws_instance" "nginx" {
   ami           = "ami-084568db4383264d4"
-  instance_type = var.instance1
+  instance_type = var.instance2
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
 

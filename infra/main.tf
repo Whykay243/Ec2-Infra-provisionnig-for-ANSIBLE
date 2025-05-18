@@ -152,7 +152,7 @@ ingress {
 
 resource "aws_instance" "nginx" {
   ami           = "ami-084568db4383264d4"
-  instance_type = var.instance2
+  instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
 
@@ -162,7 +162,7 @@ resource "aws_instance" "nginx" {
 }
 resource "aws_instance" "apache" {
   ami           = "ami-084568db4383264d4"
-  instance_type = var.instance2
+  instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
 
@@ -173,7 +173,7 @@ resource "aws_instance" "apache" {
 
 resource "aws_instance" "mysql" {
   ami           = "ami-084568db4383264d4"
-  instance_type = var.instance2
+  instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
 

@@ -100,9 +100,9 @@ jobs:
           name: ec2-private-key
           path: infra/tf-artifacts/ec2_key.pem
 
-     # - name: Terraform Destroy
-       # working-directory: infra
-        #run: terraform destroy -auto-approve -input=false || true
+      - name: Terraform Destroy
+        working-directory: infra
+        run: terraform destroy -auto-approve -input=false || true
 
 # Uncomment these to use apply and save keypair
 #      - name: Terraform Apply

@@ -151,8 +151,25 @@ ingress {
   }
 }
 
+data "aws_ami" "ubuntu" {
+  most_recent = true
+
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+  }
+
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+
+  owners = ["099720109477"]  # Canonical's AWS account ID (official Ubuntu owner)
+}
+
+
 resource "aws_instance" "nginx" {
-  ami           = "ami-084568db4383264d4"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
@@ -162,7 +179,7 @@ resource "aws_instance" "nginx" {
   }
 }
 resource "aws_instance" "apache" {
-  ami           = "ami-084568db4383264d4"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]
@@ -173,7 +190,7 @@ resource "aws_instance" "apache" {
 }
 
 resource "aws_instance" "mysql" {
-  ami           = "ami-084568db4383264d4"
+  ami           = data.aws_ami.ubuntu.id
   instance_type = var.instance1
   key_name      = aws_key_pair.generated_key.key_name
   vpc_security_group_ids      = [aws_security_group.ec2_sg.id]

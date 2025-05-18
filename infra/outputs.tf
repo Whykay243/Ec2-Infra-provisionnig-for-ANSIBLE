@@ -3,16 +3,16 @@ output "private_key_pem" {
   sensitive = true
 }
 
-output "instance_public_ip_master" {
-  value = aws_instance.master.public_ip
+output "instance_public_ip_Nginx-server" {
+  value = aws_instance.Nginx-server.public_ip
 }
 
-output "instance_public_ip_worker-1" {
-  value = aws_instance.worker-node-1.public_ip
+output "instance_public_ip_Apache-server" {
+  value = aws_instance.Apache-server.public_ip
 }
 
-output "instance_public_ip_worker-2" {
-  value = aws_instance.worker-node-2.public_ip
+output "instance_public_ip_Mysql-server" {
+  value = aws_instance.Mysql-server.public_ip
 }
 output "public_key_openssh" {
   value = tls_private_key.ssh_key.public_key_openssh

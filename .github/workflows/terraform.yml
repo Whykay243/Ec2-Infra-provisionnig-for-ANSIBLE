@@ -44,7 +44,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
         run: |
-            if aws s3api head-bucket --bucket "realcloud-tfstate-bucket-001" 2>/dev/null; then
+            if aws s3api head-bucket --bucket "physicstutors-001" 2>/dev/null; then
               echo "exists=true" >> $GITHUB_ENV
             else
               echo "exists=false" >> $GITHUB_ENV
@@ -80,7 +80,7 @@ jobs:
       - name: Terraform Init (with backend)
         run: |
           terraform -chdir=infra init \
-            -backend-config="bucket=realcloud-tfstate-bucket-001" \
+            -backend-config="bucket=physicstutors-001" \
             -backend-config="key=ec2-infra/terraform.tfstate" \
             -backend-config="region=us-east-1"
 
